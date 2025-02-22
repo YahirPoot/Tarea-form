@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación con Vulnerabilidades</title>
+    <title>Aplicación</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,10 +12,10 @@
         <div id="login-form" class="form-container">
             <h2>Login</h2>
             <form id="login">
-                <input type="text" id="login-username" placeholder="Usuario" required>
-                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <input type="text" id="login-username" placeholder="Usuario">
+                <input type="password" id="login-password" placeholder="Contraseña">
             </form>
-            <button type="submit">Iniciar Sesión</button>
+            <button class="btn-login" type="submit">Iniciar Sesión</button>
             <p>¿No tienes una cuenta? <a href="#" id="show-register">Regístrate</a></p>
         </div>
 
@@ -23,22 +23,15 @@
         <div id="register-form" class="form-container" style="display: none;">
             <h2>Registro</h2>
             <form id="register">
-                <input type="text" id="register-username" placeholder="Usuario" required>
-                <input type="password" id="register-password" placeholder="Contraseña" required>
-                <button type="submit">Registrarse</button>
+                <input type="text" id="register-username" placeholder="Usuario">
+                <input type="email" id="register-email" placeholder="Correo Electrónico">
+                <input type="password" id="register-password" placeholder="Contraseña">
+                <input type="password" id="register-confirm-password" placeholder="Confirmar Contraseña">
             </form>
+            <button class="btn-register" type="submit">Registrarse</button>
             <p>¿Ya tienes una cuenta? <a href="#" id="show-login">Inicia Sesión</a></p>
         </div>
 
-        <!-- Área de Mensajes -->
-        <div id="message-area" style="display: none;">
-            <h2>Envía un Mensaje</h2>
-            <form id="message-form">
-                <textarea id="message-content" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-            <div id="messages"></div>
-        </div>
     </div>
 
     <script src="script.js"></script>

@@ -13,32 +13,41 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+    width: 400px;
+    text-align: center;;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-input, textarea, button {
+input, textarea {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 300px;
 }
 
-button {
+.btn-login, .btn-register {
     background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    width: 300px;
 }
 
-button:hover {
+.btn-login:hover, .btn-register:hover {
     background-color: #218838;
 }
+
+
 
 a {
     color: #007bff;
