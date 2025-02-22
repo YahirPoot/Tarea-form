@@ -20,10 +20,11 @@ document.getElementById('register').addEventListener('submit', (e) => {
     const username = document.getElementById('register-username').value;
     const password = document.getElementById('register-password').value;
     const email = document.getElementById('register-email').value;
-    const passwordConfirm = document.getElementById('register-password-confirm').value;
+    const passwordConfirm = document.getElementById('register-confirm-password').value;
 
     // Guardar usuario en texto plano (¡Error de seguridad!)
     users.push({ username, password, email, passwordConfirm });
+    console.log(users);
     alert('Registro exitoso. Ahora puedes iniciar sesión.');
     document.getElementById('register-form').style.display = 'none';
     document.getElementById('login-form').style.display = 'block';
@@ -44,5 +45,19 @@ document.getElementById('login').addEventListener('submit', (e) => {
     } else {
         alert('Usuario o contraseña incorrectos.');
     }
+});
+
+const messages = [];
+document.getElementById('message-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const content = document.getElementById('message-content').value;
+
+    // Guardar mensaje (¡Error de seguridad! No se valida ni sanitiza el contenido)
+    messages.push(content);
+    document.getElementById('message-content').value = '';
+
+    // Mostrar mensajes
+    const messagesDiv = document.getElementById('messages');
+    messagesDiv.innerHTML = messages.map(msg => `<p>${msg}</p>`).join('');
 });
 
