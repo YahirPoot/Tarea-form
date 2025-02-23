@@ -1,64 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+.img-container {
+    background-image: url('./imagenes/fondo-verde-login.jfif'); 
+    background-size: cover;
+    background-position: center;
+} 
+
+.bolita {
+    width: 130px;
+    height: 130px;
+    background-color: rgb(46, 97, 36);
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    left: -720px;
+    opacity: 0.8;
 }
 
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    text-align: center;;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-input, textarea {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 300px;
-}
-
-.btn-login, .btn-register {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 4px;
-    width: 300px;
-}
-
-.btn-login:hover, .btn-register:hover {
-    background-color: #218838;
-}
-
-
-
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-#messages {
-    margin-top: 20px;
-    text-align: left;
-}

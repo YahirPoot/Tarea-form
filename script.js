@@ -4,15 +4,16 @@ const users = [];
 // Mostrar/ocultar formularios
 document.getElementById('show-register').addEventListener('click', (e) => {
     e.preventDefault();
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('register-form').style.display = 'block';
+    document.getElementById('login-form').classList.add('d-none');
+    document.getElementById('register-form').classList.remove('d-none');
 });
 
 document.getElementById('show-login').addEventListener('click', (e) => {
     e.preventDefault();
-    document.getElementById('register-form').style.display = 'none';
-    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('register-form').classList.add('d-none');
+    document.getElementById('login-form').classList.remove('d-none');
 });
+
 
 // Registro de usuarios
 document.getElementById('register').addEventListener('submit', (e) => {
@@ -60,4 +61,3 @@ document.getElementById('message-form').addEventListener('submit', (e) => {
     const messagesDiv = document.getElementById('messages');
     messagesDiv.innerHTML = messages.map(msg => `<p>${msg}</p>`).join('');
 });
-
