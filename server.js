@@ -9,6 +9,7 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
+app.use(express.json());
 
 // Conectar a SQLite
 const db = new sqlite3.Database('database.db');
@@ -23,8 +24,8 @@ db.run(`CREATE TABLE IF NOT EXISTS users (
 
 // Endpoint vulnerable para registro de usuarios
 app.post('/register', (req, res) => {
-    const { username, password } = req.body;
-    
+    const { username, password, email } = req.body;
+    console.log(username, password);
     // Consulta SQL vulnerable a inyección
     const sql = `INSERT INTO users (username, password, role) VALUES ('${username}', '${password}', 'user')`;
     db.run(sql, function (err) {
@@ -38,7 +39,6 @@ app.post('/register', (req, res) => {
 // Endpoint vulnerable para login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    
     // Consulta SQL vulnerable a inyección
     const sql = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
     db.get(sql, (err, user) => {

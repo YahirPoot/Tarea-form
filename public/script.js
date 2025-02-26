@@ -18,34 +18,42 @@ document.getElementById('show-login').addEventListener('click', (e) => {
     document.getElementById('message-area').classList.add('d-none');
 });
 
-
-document.getElementById('register').addEventListener('submit', (e) => {
+document.getElementById('register').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('register-username').value;
     const password = document.getElementById('register-password').value;
     const email = document.getElementById('register-email').value;
-    const passwordConfirm = document.getElementById('register-confirm-password').value;
+    console.log(username, password);
 
-    // Guardar usuario en texto plano (¡Error de seguridad!)
-    users.push({ username, password, email, passwordConfirm });
-    alert('Registro exitoso. Ahora puedes iniciar sesión.');
-    document.getElementById('register-form').classList.add('d-none');
-    document.getElementById('login-form').classList.remove('d-none');
+    const response = await fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password, email })
+    });
+    const result = await response.text();
+    alert(result);
+    if (result === 'Registro exitoso') {
+        document.getElementById('register-form').classList.add('d-none');
+        document.getElementById('login-form').classList.remove('d-none');
+    }
 });
 
-
-document.getElementById('login').addEventListener('submit', (e) => {
+// Manejo de login
+document.getElementById('login').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
 
-    const user = users.find(u => u.username === username && u.password === password);
-    if (user) {
-        alert('Inicio de sesión exitoso.');
+    const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+    });
+    const result = await response.text();
+    alert(result);
+    if (result === 'Login exitoso') {
         document.getElementById('login-form').classList.add('d-none');
         document.getElementById('message-area').classList.remove('d-none');
-    } else {
-        alert('Usuario o contraseña incorrectos.');
     }
 });
 
