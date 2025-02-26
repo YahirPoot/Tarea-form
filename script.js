@@ -1,7 +1,6 @@
-// Datos simulados de usuarios (¡Error de seguridad intencional! Almacenar contraseñas en texto plano)
+
 const users = [];
 
-// Datos simulados de mensajes
 const messages = [];
 
 // Mostrar/ocultar formularios
@@ -19,7 +18,7 @@ document.getElementById('show-login').addEventListener('click', (e) => {
     document.getElementById('message-area').classList.add('d-none');
 });
 
-// Registro de usuarios
+
 document.getElementById('register').addEventListener('submit', (e) => {
     e.preventDefault();
     const username = document.getElementById('register-username').value;
@@ -34,7 +33,7 @@ document.getElementById('register').addEventListener('submit', (e) => {
     document.getElementById('login-form').classList.remove('d-none');
 });
 
-// Login de usuarios
+
 document.getElementById('login').addEventListener('submit', (e) => {
     e.preventDefault();
     const username = document.getElementById('login-username').value;
@@ -50,16 +49,13 @@ document.getElementById('login').addEventListener('submit', (e) => {
     }
 });
 
-// Enviar mensajes
 document.getElementById('message-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const content = document.getElementById('message-content').value;
 
-    // Guardar mensaje (¡Error de seguridad! No se valida ni sanitiza el contenido)
     messages.push(content);
     document.getElementById('message-content').value = '';
 
-    // Mostrar mensajes
     const messagesDiv = document.getElementById('messages');
     messagesDiv.innerHTML = messages.map(msg => `<div class="alert alert-info">${msg}</div>`).join('');
 });
